@@ -144,10 +144,12 @@ body{
 }
 
 .about{
-    display:grid;
-    grid-template-columns: repeat(2, 1fr);
+    /* display:grid; */
+    /* grid-template-columns: repeat(2, 1fr); */
     align-items: center;
-    gap: 1.5rem;
+    justify-items: center;
+    /* gap: 1.5rem; */
+    padding: 10px;
 }
 
 .about-img img{
@@ -168,6 +170,7 @@ body{
 }
 .about-text h2{
     font-size: 60px;
+    text-align: center;
 }
 
 .about-text h2 span{
@@ -179,12 +182,66 @@ body{
     color: #fff;
     line-height: 1.7;
     margin: 15px 0 30px;
+    text-align: center;
 }
 .about-text p{
     color: aliceblue;
     font-size: 20px;
-    line-height: 1.4;
-    margin-bottom: 4rem;
+}
+.scroll-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide scrollbars */
+    width: 100%; /* Full width */
+    padding: 10px;
+}
+
+/* Individual Cards */
+.cards-wrapper {
+    display: flex;
+    transition: transform 0.5s ease; /* Smooth transition */
+    height: fit-content;
+    padding: 10px;
+}
+
+.card {
+    min-height: 220px;
+    width: 250px;
+    margin-right: 20px; /* Space between cards */
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.8), rgba(0, 86, 179, 0.3));
+    padding: 20px;
+    border: solid 2px #3b99f8;
+    border-radius: 12px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    flex-shrink: 0;
+    overflow: hidden;
+    word-wrap: break-word;
+    white-space: normal;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Focused card style */
+.card.focused {
+    transform: scale(1.1); /* Larger size for focused card */
+    opacity: 1; /* Fully visible */
+    z-index: 1; /* Bring focused card to front */
+}
+
+.card:not(.focused) {
+    opacity: 0.7; /* Faded for non-focused cards */
+    transform: scale(1); /* Default size for non-focused cards */
+}
+
+.card p {
+    font-size: medium;
 }
 
 #services{
@@ -511,10 +568,15 @@ body{
 .main-text h2 span{
     color: #0ef;
 }
-.portfolio-content{
+.portfolio-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(359px, auto));
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    gap: 10px;
+    padding: 10px;
+    justify-items: center; /* Center items horizontally */
+    align-items: center;
 }
+
 .row{
     position: relative;
     overflow: hidden;
@@ -531,7 +593,7 @@ body{
 .layer{
     width: 100%;
     height: 0;
-    background: linear-gradient(rgba(0,0,0,0.1),#0ef);
+    background: linear-gradient(rgba(0,0,0,1),#0ef);
     position: absolute;
     border-radius: 8px;
     left: 0;
@@ -544,14 +606,14 @@ body{
     padding: 0 40px;
     transition: height 0.5s;
 }
-.layer h5{
-    color: #000;
+.layer h3{
+    color: #fafafa;
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 15px;
 }
 .layer p{
-    color: #000;
+    color: #ffffff;
     font-size: 1rem;
     line-height: 1.8;
 }
@@ -559,9 +621,9 @@ body{
     color: #ff004f;
     margin-top: 20px;
     font-size: 20px;
-    background: white;
-    width: 60px;
-    height: 60px;
+    background: rgb(228, 236, 241);
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
